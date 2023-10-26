@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <section class="msger">
+        <header class="msger-header">
+            <div class="msger-header-title">
+                <i class="fas fa-comment-alt"></i> SimpleChat
+            </div>
+            <div class="msger-header-options">
+                <span><i class="fas fa-cog"></i></span>
+            </div>
+        </header>
+
+        <main class="msger-chat">
+            <!-- Remove the initial chat bubbles -->
+        </main>
+
+        <form class="msger-inputarea">
+            <input type="text" class="msger-input" placeholder="Enter your message...">
+            <button type="submit" class="msger-send-btn">Send</button>
+        </form>
+    </section>
+  
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<script>
+    $(document).ready(function () {
+        $("form").on("submit", function (event) {
+            event.preventDefault();
+            var user_prompt = $(".msger-input").val().trim();
+
+            if (user_prompt !== "") {
+                // Show the chat bubbles when a prompt is made
+                $(".msger-chat .msg").show();
+
+                // Rest of your JavaScript code here...
+            }
+        });
+    });
+</script>
+</body>
+</html>
